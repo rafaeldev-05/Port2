@@ -1,0 +1,784 @@
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Professional Portfolio - Developer CV</title>
+    
+    <!-- Tailwind CSS (CDN for development only) -->
+    <script>
+        // Suppress Tailwind CDN warning
+        if (typeof console !== 'undefined' && console.warn) {
+            const originalWarn = console.warn;
+            console.warn = function(...args) {
+                if (args[0] && typeof args[0] === 'string' && args[0].includes('tailwindcss.com')) {
+                    return; // Suppress Tailwind CDN warning
+                }
+                originalWarn.apply(console, args);
+            };
+        }
+    </script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800;900&family=Fira+Code:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="body-main" data-theme="dark" data-lang="en" data-dir="ltr">
+    
+    <!-- Loading Screen -->
+    <div class="loader-screen" id="loader">
+        <div class="loader-content">
+            <div class="loader-code-text">
+                <div class="code-line" data-line="1">const portfolio = {</div>
+                <div class="code-line" data-line="2">  loading: true,</div>
+                <div class="code-line" data-line="3">  status: 'initializing...'</div>
+                <div class="code-line" data-line="4">};</div>
+            </div>
+            <div class="loader-spinner-wrapper">
+                <div class="loader-spinner"></div>
+            </div>
+            <div class="loader-progress-wrapper">
+                <div class="loader-progress-bar"></div>
+            </div>
+            <div class="loader-percentage" id="loaderPercent">0%</div>
+        </div>
+    </div>
+
+    <!-- Navigation Header -->
+    <header class="main-header" id="header">
+        <nav class="nav-container">
+            <div class="nav-brand">
+                <div class="brand-logo">
+                    <span class="logo-bracket">&lt;</span>
+                    <span class="logo-text">Dev</span>
+                    <span class="logo-bracket">/&gt;</span>
+                </div>
+            </div>
+            
+            <div class="nav-menu" id="navMenu">
+                <a href="#home" class="nav-link active" data-section="home">
+                    <i class="fas fa-home"></i>
+                    <span class="nav-text" data-text-en="Home" data-text-pt="Home">Home</span>
+                </a>
+                <a href="#about" class="nav-link" data-section="about">
+                    <i class="fas fa-user"></i>
+                    <span class="nav-text" data-text-en="About" data-text-pt="Sobre">Sobre</span>
+                </a>
+                <a href="#skills" class="nav-link" data-section="skills">
+                    <i class="fas fa-code"></i>
+                    <span class="nav-text" data-text-en="Skills" data-text-pt="Habilidades">Habilidades</span>
+                </a>
+                <a href="#experience" class="nav-link" data-section="experience">
+                    <i class="fas fa-briefcase"></i>
+                    <span class="nav-text" data-text-en="Experience" data-text-pt="Experiência">Experiência</span>
+                </a>
+                <a href="#projects" class="nav-link" data-section="projects">
+                    <i class="fas fa-rocket"></i>
+                    <span class="nav-text" data-text-en="Projects" data-text-pt="Projetos">Projetos</span>
+                </a>
+                <a href="#contact" class="nav-link" data-section="contact">
+                    <i class="fas fa-envelope"></i>
+                    <span class="nav-text" data-text-en="Contact" data-text-pt="Contato">Contato</span>
+                </a>
+            </div>
+            
+            <div class="nav-controls">
+                <button class="lang-toggle" id="langToggle" title="Toggle Language">
+                    <i class="fas fa-language"></i>
+                    <span class="lang-text">AR</span>
+                </button>
+                <button class="theme-toggle" id="themeToggle" title="Toggle Theme">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <button class="menu-toggle" id="menuToggle" title="Toggle Menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        
+        <!-- Hero Section -->
+        <section id="home" class="hero-section">
+            <div class="hero-background">
+                <div class="code-grid-bg"></div>
+                <div class="floating-particles" id="particles"></div>
+            </div>
+            
+            <div class="hero-container">
+                <div class="hero-content">
+                    <div class="hero-greeting">
+                        <span class="greeting-text" data-text-en="Hello, I'm" data-text-pt="Olá, Eu sou">Hello, I'm</span>
+                        <span class="greeting-cursor">|</span>
+                    </div>
+                    
+                    <h1 class="hero-name" id="heroName">
+                        <span class="name-prefix">const</span>
+                        <span class="name-operator">=</span>
+                        <span class="name-value">Software Engineer</span>
+                        <span class="name-suffix">;</span>
+                    </h1>
+                    
+                    <div class="hero-title">
+                        <span class="title-prefix">//</span>
+                        <span class="title-text" data-text-en="Full Stack Developer & UI/UX Designer" data-text-pt="Desenvolvedor Full Stack & UI/UX Designer">Full Stack Developer & UI/UX Designer</span>
+                    </div>
+                    
+                    <p class="hero-description" data-text-en="Passionate developer creating exceptional digital experiences with modern technologies." data-text-pt="Desenvolvedor apaixonado criando experiências digitais excepcionais com tecnologias modernas.">
+                        Passionate developer creating exceptional digital experiences with modern technologies.
+                    </p>
+                    
+                    <div class="hero-buttons">
+                        <a href="#contact" class="btn btn-primary">
+                            <span data-text-en="Get In Touch" data-text-pt="Entrar em contato">Get In Touch</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                        <a href="#projects" class="btn btn-secondary">
+                            <span data-text-en="View Projects" data-text-pt="Ver projetos">View Projects</span>
+                            <i class="fas fa-code"></i>
+                        </a>
+                    </div>
+                    
+                    <div class="hero-social">
+                        <a target= "_blank" href="https://github.com/RafaelFreitas1009" class="social-icon" title="GitHub">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a target= "_blank" href="https://www.linkedin.com/in/rafaelfreitascode" class="social-icon" title="LinkedIn">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a target= "_blank" href="#" class="social-icon" title="Twitter">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a target= "_blank" href="#" class="social-icon" title="CodePen">
+                            <i class="fab fa-codepen"></i>
+                        </a>
+                        <a target= "_blank" href="#" class="social-icon" title="Email">
+                            <i class="fas fa-envelope"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="hero-image-wrapper">
+                    <div class="hero-image-container">
+                        <div class="profile-image-glow"></div>
+                        <div class="profile-image-frame">
+                            <div class="profile-image" id="profileImage">
+                                <div class="profile-placeholder">
+                                    <i class="fas fa-code"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="floating-badge badge-1">
+                            <i class="fab fa-react"></i>
+                            <div class="badge-content">
+                                <span class="badge-title">React</span>
+                                <span class="badge-libs">Redux, Router, Hooks</span>
+                            </div>
+                        </div>
+                        <div class="floating-badge badge-2">
+                            <i class="fab fa-node-js"></i>
+                            <div class="badge-content">
+                                <span class="badge-title">Node.js</span>
+                                <span class="badge-libs">Express, Socket.io, MongoDB</span>
+                            </div>
+                        </div>
+                        <div class="floating-badge badge-3">
+                            <i class="fab fa-js"></i>
+                            <div class="badge-content">
+                                <span class="badge-title">JavaScript</span>
+                                <span class="badge-libs">ES6+, TypeScript, jQuery</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="scroll-indicator">
+                <div class="scroll-mouse">
+                    <div class="scroll-wheel"></div>
+                </div>
+                <span class="scroll-text" data-text-en="Scroll Down" data-text-pt="Role para baixo">Scroll Down</span>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="section about-section">
+            <div class="section-container">
+                <div class="section-header">
+                    <span class="section-number">01</span>
+                    <h2 class="section-title">
+                        <span class="title-bracket">&lt;</span>
+                        <span class="title-text" data-text-en="About Me" data-text-pt="Sobre mim">About Me</span>
+                        <span class="title-bracket">/&gt;</span>
+                    </h2>
+                    <div class="section-line"></div>
+                </div>
+                
+                <div class="about-content">
+                    <div class="about-text-wrapper">
+                        <div class="about-intro">
+                            <p class="about-text" data-text-en="I'm a passionate Full Stack Developer with over 5 years of experience in building modern web applications and mobile solutions. I specialize in JavaScript technologies, React, Node.js, and creating beautiful user interfaces." data-text-pt="Sou um Desenvolvedor Full Stack apaixonado com mais de 3 anos de experiência na construção de aplicações web modernas e soluções móveis. Eu me especializo em tecnologias JavaScript, React, Node.js e na criação de belas interfaces de usuário.">
+                                I'm a passionate Full Stack Developer with over 5 years of experience in building modern web applications and mobile solutions. I specialize in JavaScript technologies, React, Node.js, and creating beautiful user interfaces.
+                            </p>
+                        </div>
+                        
+                        <div class="about-stats">
+                            <div class="stat-item">
+                                <div class="stat-number" data-count="20">0</div>
+                                <div class="stat-label" data-text-en="Projects" data-text-pt="Projetos">Projects</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-number" data-count="3">0</div>
+                                <div class="stat-label" data-text-en="Years Experience" data-text-pt="Anos de Experiência">Years Experience</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-number" data-count="30">0</div>
+                                <div class="stat-label" data-text-en="Happy Clients" data-text-pt="Clientes Satisfeitos">Happy Clients</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="about-image-wrapper">
+                        <div class="about-image-container">
+                            <div class="code-block">
+                                <div class="code-line">
+                                    <span class="code-keyword">const</span>
+                                    <span class="code-variable">developer</span>
+                                    <span class="code-operator">=</span>
+                                    <span class="code-brace">{</span>
+                                </div>
+                                <div class="code-line indent">
+                                    <span class="code-property">name</span>
+                                    <span class="code-operator">:</span>
+                                    <span class="code-string">'Developer'</span>
+                                    <span class="code-comma">,</span>
+                                </div>
+                                <div class="code-line indent">
+                                    <span class="code-property">skills</span>
+                                    <span class="code-operator">:</span>
+                                    <span class="code-bracket">[</span>
+                                    <span class="code-string">'React'</span>
+                                    <span class="code-comma">,</span>
+                                    <span class="code-string">'Node.js'</span>
+                                    <span class="code-comma">,</span>
+                                    <span class="code-string">'TypeScript'</span>
+                                    <span class="code-bracket">]</span>
+                                    <span class="code-comma">,</span>
+                                </div>
+                                <div class="code-line indent">
+                                    <span class="code-property">passion</span>
+                                    <span class="code-operator">:</span>
+                                    <span class="code-string">'Coding'</span>
+                                </div>
+                                <div class="code-line">
+                                    <span class="code-brace">}</span>
+                                    <span class="code-semicolon">;</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="section skills-section">
+            <div class="section-container">
+                <div class="section-header">
+                    <span class="section-number">02</span>
+                    <h2 class="section-title">
+                        <span class="title-bracket">&lt;</span>
+                        <span class="title-text" data-text-en="Skills" data-text-pt="Habilidades">Skills</span>
+                        <span class="title-bracket">/&gt;</span>
+                    </h2>
+                    <div class="section-line"></div>
+                </div>
+                
+                <div class="skills-grid">
+                    <div class="skill-category">
+                        <h3 class="category-title" data-text-en="Frontend" data-text-pt="Frontend">Frontend</h3>
+                        <div class="skill-items">
+                            <div class="skill-item" data-skill="React" data-percent="95">
+                                <div class="skill-header">
+                                    <span class="skill-name">React</span>
+                                    <span class="skill-percent">0%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item" data-skill="Vue.js" data-percent="85">
+                                <div class="skill-header">
+                                    <span class="skill-name">Vue.js</span>
+                                    <span class="skill-percent">0%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item" data-skill="TypeScript" data-percent="90">
+                                <div class="skill-header">
+                                    <span class="skill-name">TypeScript</span>
+                                    <span class="skill-percent">0%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item" data-skill="Next.js" data-percent="88">
+                                <div class="skill-header">
+                                    <span class="skill-name">Next.js</span>
+                                    <span class="skill-percent">0%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-category">
+                        <h3 class="category-title" data-text-en="Backend" data-text-pt="Backend">Backend</h3>
+                        <div class="skill-items">
+                            <div class="skill-item" data-skill="Node.js" data-percent="92">
+                                <div class="skill-header">
+                                    <span class="skill-name">Node.js</span>
+                                    <span class="skill-percent">0%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item" data-skill="Express" data-percent="90">
+                                <div class="skill-header">
+                                    <span class="skill-name">Express</span>
+                                    <span class="skill-percent">0%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item" data-skill="Spring Boot" data-percent="85">
+                                <div class="skill-header">
+                                    <span class="skill-name">Spring Boot</span>
+                                    <span class="skill-percent">0%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item" data-skill="PostgreSQL" data-percent="80">
+                                <div class="skill-header">
+                                    <span class="skill-name">PostgreSQL</span>
+                                    <span class="skill-percent">0%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-category">
+                        <h3 class="category-title" data-text-en="Tools & Others" data-text-pt="Outras Ferramentas">Tools & Others</h3>
+                        <div class="skill-items">
+                            <div class="skill-item" data-skill="Git" data-percent="95">
+                                <div class="skill-header">
+                                    <span class="skill-name">Git</span>
+                                    <span class="skill-percent">0%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item" data-skill="Docker" data-percent="75">
+                                <div class="skill-header">
+                                    <span class="skill-name">Docker</span>
+                                    <span class="skill-percent">0%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item" data-skill="AWS" data-percent="70">
+                                <div class="skill-header">
+                                    <span class="skill-name">AWS</span>
+                                    <span class="skill-percent">0%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item" data-skill="Figma" data-percent="88">
+                                <div class="skill-header">
+                                    <span class="skill-name">Figma</span>
+                                    <span class="skill-percent">0%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience Section -->
+        <section id="experience" class="section experience-section">
+            <div class="section-container">
+                <div class="section-header">
+                    <span class="section-number">03</span>
+                    <h2 class="section-title">
+                        <span class="title-bracket">&lt;</span>
+                        <span class="title-text" data-text-en="Experience" data-text-pt="Experiência">Experience</span>
+                        <span class="title-bracket">/&gt;</span>
+                    </h2>
+                    <div class="section-line"></div>
+                </div>
+                
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <div class="timeline-header">
+                                <div class="timeline-year">2025 - Present</div>
+                                <div class="timeline-badge">Current</div>
+                            </div>
+                            <h3 class="timeline-title" data-text-en="Software Engineer" data-text-pt="Engenheiro de Software">Senior Full Stack Developer</h3>
+                            <div class="timeline-company">
+                                <i class="fas fa-building"></i>
+                                Emserh - Empresa Maranhense de Serviços Hospitalares.
+                            </div>
+                            <p class="timeline-description" data-text-en="Working as a Software Engineer developing and maintaining backend and frontend applications, intelligent automations, and integrated production systems. Responsible for building APIs, services, and system integrations using Node.js, Next.js, relational databases, and cloud infrastructure, with a focus on scalability, reliability, and automation." data-text-pt="Atuo como Engenheiro de Software no desenvolvimento e sustentação de aplicações backend e frontend, automações inteligentes e sistemas integrados em ambiente de produção. Sou responsável pela criação de APIs, serviços e integrações utilizando Node.js, Next.js, bancos de dados relacionais e infraestrutura em cloud, com foco em escalabilidade, confiabilidade e automação">
+                                Leading a team of developers in building complex web applications using React and Node.js. Developing advanced user interfaces and optimizing performance. Implementing microservices architecture and CI/CD pipelines.
+                            </p>
+                            <div class="timeline-achievements">
+                                <div class="achievement-item">
+                                    <i class="fas fa-check-circle"></i>
+                                    <span data-text-en="Implemented scalable and reliable system architectures" data-text-pt="Implementação de arquiteturas escaláveis e confiáveis ">Led team of 5 developers</span>
+                                </div>
+                                <div class="achievement-item">
+                                    <i class="fas fa-check-circle"></i>
+                                    <span data-text-en="Automated deployments and CI/CD pipelines, improving 40% high performance" data-text-pt="Automação de deploys e pipelines CI/CD, aumentando a performance em 40%">Improved performance by 40%</span>
+                                </div>
+                                <div class="achievement-item">
+                                    <i class="fas fa-check-circle"></i>
+                                    <span data-text-en="Deployed 20+ production apps" data-text-pt="Deploy de mais de 20 aplicações em produção">Deployed 20+ production apps</span>
+                                </div>
+                            </div>
+                            <div class="timeline-tags">
+                                <span class="tag">React</span>
+                                <span class="tag">Node.js</span>
+                                <span class="tag">TypeScript</span>
+                                <span class="tag">PostgreSQL</span>
+                                <span class="tag">Docker</span>
+                                <span class="tag">AWS</span>
+                                <span class="tag">Jenkins</span>
+                                <span class="tag">Coolify</span>
+                                <span class="tag">Github Actions</span>
+                                <span class="tag">N8N</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <div class="timeline-header">
+                                <div class="timeline-year">2023 - 2025</div>
+                            </div>
+                            <h3 class="timeline-title" data-text-en="Junior Developer" data-text-pt="Desenvolvedor Júnior">Frontend Developer</h3>
+                            <div class="timeline-company">
+                                <i class="fas fa-building"></i>
+                                Projeta Engenharia
+                            </div>
+                            <p class="timeline-description" data-text-en="Worked on software development focused on automation, system integration, and corporate applications. Co-developed a mobile application for Daily Construction Reports (RDO), building user interfaces, integrating backend APIs, and participating in agile development processes." data-text-pt="Atuei no desenvolvimento de soluções de software voltadas à automação de processos, integração de sistemas e aplicações corporativas. Co-desenvolvi um aplicativo mobile para Registro Diário de Obras (RDO), trabalhando na criação de interfaces, integração com APIs backend e atuando em ambiente ágil.">
+                                Developed interactive user interfaces using React and Vue.js. Worked on improving user experience and performance optimization. Collaborated with designers to implement pixel-perfect designs.
+                            </p>
+                            <div class="timeline-achievements">
+                                <div class="achievement-item">
+                                    <i class="fas fa-check-circle"></i>
+                                    <span data-text-en="Developed mobile and web applications for corporate use" data-text-pt="Desenvolvimento de aplicações mobile e web corporativas">Built 15+ responsive websites</span>
+                                </div>
+                                <div class="achievement-item">
+                                    <i class="fas fa-check-circle"></i>
+                                    <span data-text-en="Worked on performance improvements and system integration" data-text-pt="Atuação em melhorias de performance e integração de sistema">Reduced load time by 50%</span>
+                                </div>
+                            </div>
+                            <div class="timeline-tags">
+                                <span class="tag">React Native</span>
+                                <span class="tag">Flutter</span>
+                                <span class="tag">GitHub</span>
+                                <span class="tag">PostgreSQL</span>
+                                <span class="tag">Javascript</span>
+                                <span class="tag">Bootstrap</span>
+                                <span class="tag">Spring Boot</span>
+                                <span class="tag">Java</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <div class="timeline-header">
+                                <div class="timeline-year">2023 - 2023</div>
+                            </div>
+                            <h3 class="timeline-title" data-text-en="Intern Developer" data-text-pt="Estagiário de Desenvolvimento">Junior Developer</h3>
+                            <div class="timeline-company">
+                                <i class="fas fa-building"></i>
+                                Projeta Engenharia
+                            </div>
+                            <p class="timeline-description" data-text-en="Supported software development activities, assisting in requirements analysis, data organization, automation tasks, and implementation of internal solutions. Gained a solid foundation in software engineering, system analysis, and development best practices." data-text-pt="Atuei no suporte ao desenvolvimento de software, auxiliando na análise de requisitos, organização e automação de dados e implementação de soluções internas. Nesse período, adquiri base sólida em engenharia de software, análise de sistemas e boas práticas de desenvolvimento.">
+                                Developed websites using HTML, CSS, and JavaScript. Learned best practices in web development. Worked on various client projects and gained experience in modern web technologies.
+                            </p>
+                            <div class="timeline-achievements">
+                                <div class="achievement-item">
+                                    <i class="fas fa-check-circle"></i>
+                                    <span data-text-en="Supported development of internal systems and tools" data-text-pt="Suporte ao desenvolvimento de sistemas e ferramentas internas">Completed 30+ projects</span>
+                                </div>
+                                <div class="achievement-item">
+                                    <i class="fas fa-check-circle"></i>
+                                    <span data-text-en="Learned modern frameworks" data-text-pt="Aprendizado de frameworks mordernos">Learned modern frameworks</span>
+                                </div>
+                            </div>
+                            <div class="timeline-tags">
+                                <span class="tag">HTML</span>
+                                <span class="tag">CSS</span>
+                                <span class="tag">JavaScript</span>
+                                <span class="tag">Bootstrap</span>
+                                <span class="tag">Python</span>
+                                <span class="tag">Django</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="section projects-section">
+            <div class="section-container">
+                <div class="section-header">
+                    <span class="section-number">04</span>
+                    <h2 class="section-title">
+                        <span class="title-bracket">&lt;</span>
+                        <span class="title-text" data-text-en="Projects" data-text-pt="Projetos">Projects</span>
+                        <span class="title-bracket">/&gt;</span>
+                    </h2>
+                    <div class="section-line"></div>
+                </div>
+                
+                <div class="projects-grid">
+                    <div class="project-card">
+                        <div class="project-image">
+                            <div class="project-overlay">
+                                <div class="project-links">
+                                    <a target="_blank" href="https://eurotrip-plan.vercel.app/" class="project-link" title="View Project">
+                                        <i class="fas fa-external-link-alt"></i>
+                                    </a>
+                                    <a target="_blank" href="https://github.com/RafaelFreitas1009/Eurotrip_Plan" class="project-link" title="View Code">
+                                        <i class="fab fa-github"></i>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="project-placeholder">
+                                <i class="fas fa-shopping-cart"></i>
+                            </div>
+                        </div>
+                        <div class="project-content">
+                            <h3 class="project-title" data-text-en="Eurotrip Planner" data-text-pt="Eurotrip Planner">E-Commerce Platform</h3>
+                            <p class="project-description" data-text-en="A web platform designed to plan and organize trips across Europe, featuring itinerary management, task checklists, and trip progress tracking. Focused on usability, organization, and real-world travel planning." data-text-pt="Plataforma web desenvolvida para planejamento e organização de viagens pela Europa, com gerenciamento de itinerários, checklists de tarefas e acompanhamento do progresso da viagem. Focada em usabilidade e organização prática">
+                                A complete e-commerce platform with payment integration and advanced inventory management.
+                            </p>
+                            <div class="project-tags">
+                                <span class="tag">React</span>
+                                <span class="tag">Node.js</span>
+                                <span class="tag">Supabse</span>
+                                <span class="tag">Tailwind CSS</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="project-card">
+                        <div class="project-image">
+                            <div class="project-overlay">
+                                <div class="project-links">
+                                    <a target="_blank" href= "https://github.com/RafaelFreitas1009/Inteligencia_Artificial" class="project-link" title="View Project" data-ignore-card-click>
+                                        <i class="fas fa-external-link-alt"></i>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="project-placeholder">
+                                <i class="fas fa-tasks"></i>
+                            </div>
+                        </div>
+                        <div class="project-content">
+                            <h3 class="project-title" data-text-en="Generative Artificial Intelligence" data-text-pt="Inteligência Artificial Generativa">Task Management App</h3>
+                            <p class="project-description" data-text-en="Project that leverages generative AI to automatically produce narrative content and structured technical reports. The solution integrates prompt engineering, execution logs, and automated PDF generation, focusing on reproducibility, traceability, and automation." data-text-pt="Projeto que utiliza IA generativa para produzir automaticamente conteúdos narrativos e relatórios técnicos estruturados. A solução integra engenharia de prompts, logs de execução e geração automatizada de PDFs, com foco em reprodutibilidade, rastreabilidade e automação.">
+                                A web application for task management with real-time synchronization and modern design.
+                            </p>
+                            <div class="project-tags">
+                                <span class="tag">Gemini</span>
+                                <span class="tag">Artificial Intelligence</span>
+                                <span class="tag">Tokens</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="project-card">
+                        <div class="project-image">
+                            <div class="project-overlay">
+                                <div class="project-links">
+                                    <a href="https://ecoflow-five.vercel.app/auth" class="project-link" title="View Project">
+                                        <i class="fas fa-external-link-alt"></i>
+                                    </a>
+                                    <a href="https://github.com/RafaelFreitas1009/Ecoflow" class="project-link" title="View Code">
+                                        <i class="fab fa-github"></i>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="project-placeholder">
+                                <i class="fas fa-blog"></i>
+                            </div>
+                        </div>
+                        <div class="project-content">
+                            <h3 class="project-title" data-text-en="EGS Platform" data-text-pt="Plataforma ESG">Blog Platform</h3>
+                            <p class="project-description" data-text-en="A modern ESG platform with features and beautiful UI design." data-text-pt="Plataforma ESG moderno com recurso e design de interface bonito.">
+                                A modern blog platform with CMS features and beautiful UI design.
+                            </p>
+                            <div class="project-tags">
+                                <span class="tag">Next.js</span>
+                                <span class="tag">Node.js</span>
+                                <span class="tag">Prisma</span>
+                                <span class="tag">Supabase</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="section contact-section">
+            <div class="section-container">
+                <div class="section-header">
+                    <span class="section-number">05</span>
+                    <h2 class="section-title">
+                        <span class="title-bracket">&lt;</span>
+                        <span class="title-text" data-text-en="Contact" data-text-pt="Contato">Contact</span>
+                        <span class="title-bracket">/&gt;</span>
+                    </h2>
+                    <div class="section-line"></div>
+                </div>
+                
+                <div class="contact-content">
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h4 class="contact-label" data-text-en="Email" data-text-pt="E-mail">Email</h4>
+                                <a href="mailto:rafaelfreitas1009@gmail.com" class="contact-value">rafaelfreitas1009@gmail.com</a>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h4 class="contact-label" data-text-en="Phone" data-text-pt="Fone">Phone</h4>
+                                <a href="tel:+5598970213045" class="contact-value">+55 98 97021 3045</a>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h4 class="contact-label" data-text-en="Location" data-text-pt="Localização">Location</h4>
+                                <span class="contact-value" data-text-en="Brazil" data-text-pt="Maranhão - Brasil">Maranhão - Brasil</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <form class="contact-form" id="contactForm">
+                        <div class="form-group">
+                            <input type="text" class="form-input" placeholder="Name" data-placeholder-en="Name" data-placeholder-ar="Nome" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" class="form-input" placeholder="Email" data-placeholder-en="Email" data-placeholder-ar="E-mail" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-input" placeholder="Subject" data-placeholder-en="Subject" data-placeholder-ar="Assunto" required>
+                        </div>
+                        <div class="form-group">
+                            <textarea class="form-input form-textarea" rows="5" placeholder="Message" data-placeholder-en="Message" data-placeholder-ar="Mensagem" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-submit">
+                            <span data-text-en="Send Message" data-text-pt="Enviar mensagem">Send Message</span>
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="footer-container">
+            <div class="footer-content">
+                <div class="footer-text-wrapper">
+                    <p class="footer-text">
+                        <span class="footer-copyright">© 2025 Developer Portfolio</span>
+                        <span class="footer-divider">•</span>
+                        <span class="footer-built">Built with passion and code</span>
+                    </p>
+                    <p class="footer-author">
+                        <span class="footer-by-text" data-text-en="by" data-text-pt="por">by</span>
+                        <a href="https://www.linkedin.com/in/rafaelfreitascode" target="_blank" rel="noopener noreferrer" class="footer-author-link">
+                            <i class="fas fa-code"></i>
+                            <span>Kan3an</span>
+                        </a>
+                    </p>
+                </div>
+                <div class="footer-social">
+                    <a target= "_blank" href="https://www.linkedin.com/in/rafaelfreitascode" target="_blank" rel="noopener noreferrer" class="footer-social-link">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a target= "_blank" href="https://github.com/RafaelFreitas1009" class="footer-social-link" title="GitHub">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a target= "_blank" href="#" class="footer-social-link" title="Twitter">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    <!-- Motion One loaded dynamically -->
+    <script src="js/animations.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
+
