@@ -229,17 +229,20 @@ function initFormHandlers() {
 
 function handleFormSubmit(e) {
     e.preventDefault();
-    const formData = new FormData(e.target);
-    const data = Object.fromEntries(formData);
-    console.log('Form submitted:', data);
-    
-    const message = AppState.currentLang === 'pt'
-        ? 'Mensagem enviada com sucesso!'
-        : 'Message sent successfully!';
 
-    
-    alert(message);
-    e.target.reset();
+    const form = e.target;
+
+    const name = form.querySelector('input[placeholder="Name"]').value;
+    const email = form.querySelector('input[placeholder="Email"]').value;
+    const subject = form.querySelector('input[placeholder="Subject"]').value;
+    const message = form.querySelector('textarea').value;
+
+    const templateParams = {
+        from_name: name,
+        from_email: email,
+        subject: subject,
+        message: message
+    };
 }
 
 function initMobileMenu() {
