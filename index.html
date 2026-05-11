@@ -3,22 +3,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Professional Portfolio - Developer CV</title>
-    
-    <!-- Tailwind CSS (CDN for development only) -->
-    <script>
-        // Suppress Tailwind CDN warning
-        if (typeof console !== 'undefined' && console.warn) {
-            const originalWarn = console.warn;
-            console.warn = function(...args) {
-                if (args[0] && typeof args[0] === 'string' && args[0].includes('tailwindcss.com')) {
-                    return; // Suppress Tailwind CDN warning
-                }
-                originalWarn.apply(console, args);
-            };
-        }
-    </script>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Rafael Freitas | Software Engineer</title>
+    <meta name="description" content="Rafael Freitas is a software engineer and full stack developer building modern web and mobile applications with JavaScript, React, Node.js and cloud technologies.">
+    <meta name="keywords" content="Rafael Freitas, software engineer, full stack developer, JavaScript, React, Node.js, portfolio">
+    <meta name="author" content="Rafael Freitas">
+    <!-- Add the production URL after the final Vercel domain is confirmed. -->
+    <!-- <link rel="canonical" href="https://your-domain.vercel.app/"> -->
+    <meta property="og:title" content="Rafael Freitas | Software Engineer">
+    <meta property="og:description" content="Software engineer and full stack developer creating modern web and mobile applications.">
+    <meta property="og:type" content="website">
+    <!-- <meta property="og:url" content="https://your-domain.vercel.app/"> -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Rafael Freitas | Software Engineer">
+    <meta name="twitter:description" content="Software engineer and full stack developer creating modern web and mobile applications.">
     
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -91,14 +88,14 @@
             </div>
             
             <div class="nav-controls">
-                <button class="lang-toggle" id="langToggle" title="Toggle Language">
+                <button class="lang-toggle" id="langToggle" type="button" title="Toggle Language" aria-label="Switch language to Portuguese">
                     <i class="fas fa-language"></i>
-                    <span class="lang-text">AR</span>
+                    <span class="lang-text">PT</span>
                 </button>
-                <button class="theme-toggle" id="themeToggle" title="Toggle Theme">
+                <button class="theme-toggle" id="themeToggle" type="button" title="Toggle Theme" aria-label="Switch to light theme">
                     <i class="fas fa-moon"></i>
                 </button>
-                <button class="menu-toggle" id="menuToggle" title="Toggle Menu">
+                <button class="menu-toggle" id="menuToggle" type="button" title="Toggle Menu" aria-label="Open navigation menu" aria-controls="navMenu" aria-expanded="false">
                     <span></span>
                     <span></span>
                     <span></span>
@@ -152,19 +149,13 @@
                     </div>
                     
                     <div class="hero-social">
-                        <a target= "_blank" href="https://github.com/RafaelFreitas1009" class="social-icon" title="GitHub">
+                        <a target="_blank" href="https://github.com/RafaelFreitas1009" rel="noopener noreferrer" class="social-icon" title="GitHub" aria-label="GitHub profile">
                             <i class="fab fa-github"></i>
                         </a>
-                        <a target= "_blank" href="https://www.linkedin.com/in/rafaelfreitascode" class="social-icon" title="LinkedIn">
+                        <a target="_blank" href="https://www.linkedin.com/in/rafaelfreitascode" rel="noopener noreferrer" class="social-icon" title="LinkedIn" aria-label="LinkedIn profile">
                             <i class="fab fa-linkedin-in"></i>
                         </a>
-                        <a target= "_blank" href="#" class="social-icon" title="Twitter">
-                            <i class="fab fa-twitter"></i>
-                        </a>
-                        <a target= "_blank" href="#" class="social-icon" title="CodePen">
-                            <i class="fab fa-codepen"></i>
-                        </a>
-                        <a target= "_blank" href="#" class="social-icon" title="Email">
+                        <a href="mailto:rafaelfreitas1009@gmail.com" class="social-icon" title="Email" aria-label="Send email to Rafael Freitas">
                             <i class="fas fa-envelope"></i>
                         </a>
                     </div>
@@ -262,7 +253,7 @@
                                 <div class="code-line indent">
                                     <span class="code-property">name</span>
                                     <span class="code-operator">:</span>
-                                    <span class="code-string">'Developer'</span>
+                                    <span class="code-string">'Rafael Freitas'</span>
                                     <span class="code-comma">,</span>
                                 </div>
                                 <div class="code-line indent">
@@ -553,7 +544,7 @@
                                 </div>
                                 <div class="achievement-item">
                                     <i class="fas fa-check-circle"></i>
-                                    <span data-text-en="Learned modern frameworks" data-text-pt="Aprendizado de frameworks mordernos">Learned modern frameworks</span>
+                                    <span data-text-en="Learned modern frameworks" data-text-pt="Aprendizado de frameworks modernos">Learned modern frameworks</span>
                                 </div>
                             </div>
                             <div class="timeline-tags">
@@ -588,10 +579,10 @@
                         <div class="project-image">
                             <div class="project-overlay">
                                 <div class="project-links">
-                                    <a target="_blank" href="https://eurotrip-plan.vercel.app/" class="project-link" title="View Project">
+                                    <a target="_blank" href="https://eurotrip-plan.vercel.app/" rel="noopener noreferrer" class="project-link" title="View Project" aria-label="View Eurotrip Planner">
                                         <i class="fas fa-external-link-alt"></i>
                                     </a>
-                                    <a target="_blank" href="https://github.com/RafaelFreitas1009/Eurotrip_Plan" class="project-link" title="View Code">
+                                    <a target="_blank" href="https://github.com/RafaelFreitas1009/Eurotrip_Plan" rel="noopener noreferrer" class="project-link" title="View Code" aria-label="View Eurotrip Planner code">
                                         <i class="fab fa-github"></i>
                                     </a>
                                 </div>
@@ -601,14 +592,14 @@
                             </div>
                         </div>
                         <div class="project-content">
-                            <h3 class="project-title" data-text-en="Eurotrip Planner" data-text-pt="Eurotrip Planner">E-Commerce Platform</h3>
+                            <h3 class="project-title" data-text-en="Eurotrip Planner" data-text-pt="Eurotrip Planner">Eurotrip Planner</h3>
                             <p class="project-description" data-text-en="A web platform designed to plan and organize trips across Europe, featuring itinerary management, task checklists, and trip progress tracking. Focused on usability, organization, and real-world travel planning." data-text-pt="Plataforma web desenvolvida para planejamento e organização de viagens pela Europa, com gerenciamento de itinerários, checklists de tarefas e acompanhamento do progresso da viagem. Focada em usabilidade e organização prática">
                                 A complete e-commerce platform with payment integration and advanced inventory management.
                             </p>
                             <div class="project-tags">
                                 <span class="tag">React</span>
                                 <span class="tag">Node.js</span>
-                                <span class="tag">Supabse</span>
+                                <span class="tag">Supabase</span>
                                 <span class="tag">Tailwind CSS</span>
                             </div>
                         </div>
@@ -618,7 +609,7 @@
                         <div class="project-image">
                             <div class="project-overlay">
                                 <div class="project-links">
-                                    <a target="_blank" href= "https://github.com/RafaelFreitas1009/Inteligencia_Artificial" class="project-link" title="View Project" data-ignore-card-click>
+                                    <a target="_blank" href="https://github.com/RafaelFreitas1009/Inteligencia_Artificial" rel="noopener noreferrer" class="project-link" title="View Project" aria-label="View Generative Artificial Intelligence project" data-ignore-card-click>
                                         <i class="fas fa-external-link-alt"></i>
                                     </a>
                                 </div>
@@ -628,7 +619,7 @@
                             </div>
                         </div>
                         <div class="project-content">
-                            <h3 class="project-title" data-text-en="Generative Artificial Intelligence" data-text-pt="Inteligência Artificial Generativa">Task Management App</h3>
+                            <h3 class="project-title" data-text-en="Generative Artificial Intelligence" data-text-pt="Inteligência Artificial Generativa">Generative Artificial Intelligence</h3>
                             <p class="project-description" data-text-en="Project that leverages generative AI to automatically produce narrative content and structured technical reports. The solution integrates prompt engineering, execution logs, and automated PDF generation, focusing on reproducibility, traceability, and automation." data-text-pt="Projeto que utiliza IA generativa para produzir automaticamente conteúdos narrativos e relatórios técnicos estruturados. A solução integra engenharia de prompts, logs de execução e geração automatizada de PDFs, com foco em reprodutibilidade, rastreabilidade e automação.">
                                 A web application for task management with real-time synchronization and modern design.
                             </p>
@@ -644,10 +635,10 @@
                         <div class="project-image">
                             <div class="project-overlay">
                                 <div class="project-links">
-                                    <a target="_blank" href="https://ecoflow-g2k6.vercel.app" class="project-link" title="View Project">
+                                    <a target="_blank" href="https://ecoflow-g2k6.vercel.app" rel="noopener noreferrer" class="project-link" title="View Project" aria-label="View ESG Platform">
                                         <i class="fas fa-external-link-alt"></i>
                                     </a>
-                                    <a target="_blank" href="https://github.com/RafaelFreitas1009/Ecoflow" class="project-link" title="View Code">
+                                    <a target="_blank" href="https://github.com/RafaelFreitas1009/Ecoflow" rel="noopener noreferrer" class="project-link" title="View Code" aria-label="View ESG Platform code">
                                         <i class="fab fa-github"></i>
                                     </a>
                                 </div>
@@ -657,9 +648,9 @@
                             </div>
                         </div>
                         <div class="project-content">
-                            <h3 class="project-title" data-text-en="EGS Platform" data-text-pt="Plataforma ESG">Blog Platform</h3>
-                            <p class="project-description" data-text-en="A modern ESG platform with features and beautiful UI design." data-text-pt="Plataforma ESG moderno com recurso e design de interface bonito.">
-                                A modern blog platform with CMS features and beautiful UI design.
+                            <h3 class="project-title" data-text-en="ESG Platform" data-text-pt="Plataforma ESG">ESG Platform</h3>
+                            <p class="project-description" data-text-en="A modern ESG platform with useful features and a polished user interface." data-text-pt="Plataforma ESG moderna com recursos úteis e uma interface bem cuidada.">
+                                A modern ESG platform with useful features and a polished user interface.
                             </p>
                             <div class="project-tags">
                                 <span class="tag">Next.js</span>
@@ -722,17 +713,22 @@
                     
                     <form class="contact-form" id="contactForm">
                         <div class="form-group">
-                            <input type="text" class="form-input" placeholder="Name" data-placeholder-en="Name" data-placeholder-ar="Nome" required>
+                            <label class="sr-only" for="contactName" data-text-en="Name" data-text-pt="Nome">Name</label>
+                            <input id="contactName" name="name" type="text" class="form-input" placeholder="Name" data-placeholder-en="Name" data-placeholder-pt="Nome" autocomplete="name" required>
                         </div>
                         <div class="form-group">
-                            <input type="email" class="form-input" placeholder="Email" data-placeholder-en="Email" data-placeholder-ar="E-mail" required>
+                            <label class="sr-only" for="contactEmail" data-text-en="Email" data-text-pt="E-mail">Email</label>
+                            <input id="contactEmail" name="email" type="email" class="form-input" placeholder="Email" data-placeholder-en="Email" data-placeholder-pt="E-mail" autocomplete="email" required>
                         </div>
                         <div class="form-group">
-                            <input type="text" class="form-input" placeholder="Subject" data-placeholder-en="Subject" data-placeholder-ar="Assunto" required>
+                            <label class="sr-only" for="contactSubject" data-text-en="Subject" data-text-pt="Assunto">Subject</label>
+                            <input id="contactSubject" name="subject" type="text" class="form-input" placeholder="Subject" data-placeholder-en="Subject" data-placeholder-pt="Assunto" required>
                         </div>
                         <div class="form-group">
-                            <textarea class="form-input form-textarea" rows="5" placeholder="Message" data-placeholder-en="Message" data-placeholder-ar="Mensagem" required></textarea>
+                            <label class="sr-only" for="contactMessage" data-text-en="Message" data-text-pt="Mensagem">Message</label>
+                            <textarea id="contactMessage" name="message" class="form-input form-textarea" rows="5" placeholder="Message" data-placeholder-en="Message" data-placeholder-pt="Mensagem" required></textarea>
                         </div>
+                        <p class="form-status" id="formStatus" aria-live="polite"></p>
                         <button type="submit" class="btn btn-primary btn-submit">
                             <span data-text-en="Send Message" data-text-pt="Enviar mensagem">Send Message</span>
                             <i class="fas fa-paper-plane"></i>
@@ -749,7 +745,7 @@
             <div class="footer-content">
                 <div class="footer-text-wrapper">
                     <p class="footer-text">
-                        <span class="footer-copyright">© 2025 Developer Portfolio</span>
+                        <span class="footer-copyright">© 2026 Rafael Freitas</span>
                         <span class="footer-divider">•</span>
                         <span class="footer-built">Built with passion and code</span>
                     </p>
@@ -762,14 +758,14 @@
                     </p>
                 </div>
                 <div class="footer-social">
-                    <a target= "_blank" href="https://www.linkedin.com/in/rafaelfreitascode" target="_blank" rel="noopener noreferrer" class="footer-social-link">
+                    <a target="_blank" href="https://www.linkedin.com/in/rafaelfreitascode" rel="noopener noreferrer" class="footer-social-link" aria-label="LinkedIn profile">
                         <i class="fab fa-linkedin-in"></i>
                     </a>
-                    <a target= "_blank" href="https://github.com/RafaelFreitas1009" class="footer-social-link" title="GitHub">
+                    <a target="_blank" href="https://github.com/RafaelFreitas1009" rel="noopener noreferrer" class="footer-social-link" title="GitHub" aria-label="GitHub profile">
                         <i class="fab fa-github"></i>
                     </a>
-                    <a target= "_blank" href="#" class="footer-social-link" title="Twitter">
-                        <i class="fab fa-twitter"></i>
+                    <a href="mailto:rafaelfreitas1009@gmail.com" class="footer-social-link" title="Email" aria-label="Send email to Rafael Freitas">
+                        <i class="fas fa-envelope"></i>
                     </a>
                 </div>
             </div>
@@ -777,10 +773,13 @@
     </footer>
 
     <!-- Scripts -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
-    <!-- Motion One loaded dynamically -->
-    <script src="js/animations.js"></script>
-    <script src="js/main.js"></script>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    <script defer src="js/animations.js"></script>
+    <script defer src="js/main.js"></script>
+    <script>
+        window.si = window.si || function () { (window.siq = window.siq || []).push(arguments); };
+    </script>
+    <script defer src="/_vercel/speed-insights/script.js"></script>
 </body>
 </html>
 
