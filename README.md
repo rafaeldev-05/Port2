@@ -7,6 +7,7 @@ Personal portfolio for Rafael Freitas, built as a static frontend project with H
 - HTML5
 - CSS3
 - JavaScript
+- Vercel Web Analytics
 - Vercel Speed Insights
 
 ## Run Locally
@@ -32,3 +33,22 @@ Deploy the repository as a static site on Vercel.
 6. Wait for the data to appear in the Vercel dashboard under Speed Insights.
 
 Speed Insights data may not appear in local development. Production traffic is the reliable place to validate metrics.
+
+## Vercel Analytics
+
+Este projeto usa:
+
+- Vercel Web Analytics para visitantes e page views.
+- Vercel Speed Insights para métricas de performance.
+
+Como validar:
+
+1. Fazer deploy em produção na Vercel.
+2. Acessar o domínio publicado.
+3. Navegar por algumas seções do site.
+4. Aguardar alguns minutos para os dados aparecerem no painel da Vercel.
+5. Conferir no DevTools > Network se os scripts abaixo estão carregando:
+   - `/_vercel/insights/script.js`
+   - `/_vercel/speed-insights/script.js`
+
+Observação: os scripts da Vercel podem não funcionar corretamente em ambiente local, porque as rotas `/_vercel/...` dependem do ambiente publicado na Vercel.
