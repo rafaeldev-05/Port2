@@ -61,10 +61,12 @@ export function Hero() {
 
         <div className="hero-image-wrapper">
           <div className="hero-image-container">
-            <div className="profile-image-glow" />
-            <div className="profile-image-frame">
-              <div className="profile-image" id="profileImage">
-                <Image src="/assets/profile-rafael.webp" alt="Rafael Freitas, Software Engineer" className="profile-photo" width={400} height={400} priority />
+            <div className="profile-globe-shell">
+              <div className="profile-image-glow" />
+              <div className="profile-image-frame">
+                <div className="profile-image" id="profileImage">
+                  <Image src="/assets/profile-rafael.webp" alt="Rafael Freitas, Software Engineer" className="profile-photo" width={400} height={400} priority />
+                </div>
               </div>
             </div>
             <FloatingBadge className="badge-1" icon="fab fa-react" title="React" libs="Redux, Router, Hooks" />

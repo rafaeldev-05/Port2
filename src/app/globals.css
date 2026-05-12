@@ -631,6 +631,35 @@ textarea:focus-visible {
     position: relative;
     width: 400px;
     height: 400px;
+    perspective: 1200px;
+    overflow: visible;
+}
+
+.profile-globe-shell {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    transform-style: preserve-3d;
+    transform-origin: center;
+    will-change: transform, opacity, filter;
+}
+
+body.hero-profile-ready .profile-globe-shell {
+    animation: profileGlobeSpinIn 1.65s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+body.hero-profile-ready.hero-profile-spin-clockwise-2d .profile-globe-shell {
+    animation: profilePhotoClockwiseSpinIn 1.45s linear both;
+}
+
+body.hero-profile-ready.hero-profile-spin-clockwise .profile-globe-shell {
+    animation-name: profileGlobeSpinClockwise;
+}
+
+body.hero-profile-ready.hero-profile-spin-counterclockwise .profile-globe-shell {
+    animation-name: profileGlobeSpinCounterclockwise;
 }
 
 .profile-image-glow {
@@ -662,11 +691,232 @@ textarea:focus-visible {
     height: 100%;
     border-radius: 50%;
     border: 4px solid var(--primary);
-    box-shadow: 
+    --hero-profile-shadow:
         0 0 30px rgba(255,107,157,0.3),
         0 0 60px rgba(255,107,157,0.1);
+    box-shadow: var(--hero-profile-shadow);
     overflow: hidden;
     background: var(--bg-card);
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
+    will-change: box-shadow;
+}
+
+.profile-image-frame::before,
+.profile-image-frame::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.profile-image-frame::before {
+    background: linear-gradient(
+        105deg,
+        rgba(255,255,255,0) 18%,
+        rgba(255,255,255,0.32) 38%,
+        rgba(103,232,249,0.18) 50%,
+        rgba(255,255,255,0) 68%
+    );
+    transform: translateX(-140%);
+}
+
+.profile-image-frame::after {
+    background:
+        radial-gradient(circle at 30% 25%, rgba(255,255,255,0.18), transparent 28%),
+        linear-gradient(90deg, rgba(2,6,23,0.34), transparent 24%, transparent 72%, rgba(2,6,23,0.3));
+    opacity: 0;
+}
+
+body.hero-profile-ready .profile-image-frame::before {
+    animation: profileGlobeLightSweep 1.65s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+body.hero-profile-ready .profile-image-frame::after {
+    animation: profileGlobeShadeIn 1.65s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes profileGlobeSpinIn {
+    0% {
+        opacity: 0;
+        transform: rotateY(-165deg) rotateX(8deg) rotateZ(-8deg) scale(0.74);
+        filter: blur(6px) brightness(0.72) saturate(0.9);
+        box-shadow:
+            0 0 0 rgba(255,107,157,0),
+            0 0 0 rgba(255,107,157,0);
+    }
+
+    42% {
+        opacity: 1;
+        transform: rotateY(46deg) rotateX(0deg) rotateZ(4deg) scale(1.08);
+        filter: blur(0) brightness(1.08) saturate(1.05);
+        box-shadow:
+            0 0 52px rgba(255,107,157,0.46),
+            0 0 86px rgba(192,132,252,0.24);
+    }
+
+    66% {
+        transform: rotateY(-22deg) rotateX(0deg) rotateZ(-2deg) scale(1.03);
+        filter: blur(0) brightness(1.03) saturate(1);
+    }
+
+    82% {
+        transform: rotateY(9deg) rotateX(0deg) rotateZ(1deg) scale(1.01);
+    }
+
+    100% {
+        opacity: 1;
+        transform: rotateY(0deg) rotateX(0deg) rotateZ(0deg) scale(1);
+        filter: blur(0) brightness(1);
+        box-shadow: none;
+    }
+}
+
+@keyframes profilePhotoClockwiseSpinIn {
+    0% {
+        opacity: 0;
+        transform: rotate(0deg) scale(0.86);
+        filter: blur(4px) brightness(0.84) saturate(0.95);
+        box-shadow:
+            0 0 0 rgba(255,107,157,0),
+            0 0 0 rgba(255,107,157,0);
+    }
+
+    28% {
+        opacity: 1;
+        transform: rotate(101deg) scale(1.02);
+        filter: blur(0) brightness(1.04) saturate(1.02);
+    }
+
+    55% {
+        transform: rotate(198deg) scale(1.06);
+        filter: blur(0) brightness(1.08) saturate(1.04);
+        box-shadow:
+            0 0 44px rgba(255,107,157,0.38),
+            0 0 74px rgba(192,132,252,0.2);
+    }
+
+    82% {
+        transform: rotate(295deg) scale(1.02);
+        filter: blur(0) brightness(1.03) saturate(1);
+    }
+
+    100% {
+        opacity: 1;
+        transform: rotate(360deg) scale(1);
+        filter: blur(0) brightness(1);
+        box-shadow: none;
+    }
+}
+
+@keyframes profileGlobeSpinClockwise {
+    0% {
+        opacity: 0;
+        transform: rotateY(-165deg) rotateX(8deg) rotateZ(-170deg) scale(0.74);
+        filter: blur(6px) brightness(0.72) saturate(0.9);
+        box-shadow:
+            0 0 0 rgba(255,107,157,0),
+            0 0 0 rgba(255,107,157,0);
+    }
+
+    42% {
+        opacity: 1;
+        transform: rotateY(46deg) rotateX(0deg) rotateZ(34deg) scale(1.08);
+        filter: blur(0) brightness(1.08) saturate(1.05);
+        box-shadow:
+            0 0 52px rgba(255,107,157,0.46),
+            0 0 86px rgba(192,132,252,0.24);
+    }
+
+    66% {
+        transform: rotateY(-22deg) rotateX(0deg) rotateZ(-14deg) scale(1.03);
+        filter: blur(0) brightness(1.03) saturate(1);
+    }
+
+    82% {
+        transform: rotateY(9deg) rotateX(0deg) rotateZ(6deg) scale(1.01);
+    }
+
+    100% {
+        opacity: 1;
+        transform: rotateY(0deg) rotateX(0deg) rotateZ(0deg) scale(1);
+        filter: blur(0) brightness(1);
+        box-shadow: none;
+    }
+}
+
+@keyframes profileGlobeSpinCounterclockwise {
+    0% {
+        opacity: 0;
+        transform: rotateY(-165deg) rotateX(8deg) rotateZ(170deg) scale(0.74);
+        filter: blur(6px) brightness(0.72) saturate(0.9);
+        box-shadow:
+            0 0 0 rgba(255,107,157,0),
+            0 0 0 rgba(255,107,157,0);
+    }
+
+    42% {
+        opacity: 1;
+        transform: rotateY(46deg) rotateX(0deg) rotateZ(-34deg) scale(1.08);
+        filter: blur(0) brightness(1.08) saturate(1.05);
+        box-shadow:
+            0 0 52px rgba(255,107,157,0.46),
+            0 0 86px rgba(192,132,252,0.24);
+    }
+
+    66% {
+        transform: rotateY(-22deg) rotateX(0deg) rotateZ(14deg) scale(1.03);
+        filter: blur(0) brightness(1.03) saturate(1);
+    }
+
+    82% {
+        transform: rotateY(9deg) rotateX(0deg) rotateZ(-6deg) scale(1.01);
+    }
+
+    100% {
+        opacity: 1;
+        transform: rotateY(0deg) rotateX(0deg) rotateZ(0deg) scale(1);
+        filter: blur(0) brightness(1);
+        box-shadow: none;
+    }
+}
+
+@keyframes profileGlobeLightSweep {
+    0% {
+        opacity: 0;
+        transform: translateX(-140%) skewX(-12deg);
+    }
+
+    34% {
+        opacity: 0.7;
+    }
+
+    70% {
+        opacity: 0.22;
+        transform: translateX(120%) skewX(-12deg);
+    }
+
+    100% {
+        opacity: 0;
+        transform: translateX(120%) skewX(-12deg);
+    }
+}
+
+@keyframes profileGlobeShadeIn {
+    0%,
+    18% {
+        opacity: 0.45;
+    }
+
+    60% {
+        opacity: 0.2;
+    }
+
+    100% {
+        opacity: 0;
+    }
 }
 
 .profile-image {
@@ -678,6 +928,7 @@ textarea:focus-visible {
     background: var(--bg-card);
     overflow: hidden;
     will-change: transform;
+    backface-visibility: hidden;
 }
 
 .profile-photo {
@@ -1327,14 +1578,7 @@ textarea:focus-visible {
 }
 
 .projects-section::before {
-    content: "";
-    position: absolute;
-    inset: 12% -10% auto -10%;
-    height: 360px;
-    background:
-        radial-gradient(circle at 25% 50%, rgba(103, 232, 249, 0.12), transparent 34%),
-        radial-gradient(circle at 72% 46%, rgba(192, 132, 252, 0.14), transparent 34%);
-    pointer-events: none;
+    content: none;
 }
 
 .projects-intro {
@@ -1530,15 +1774,7 @@ textarea:focus-visible {
 }
 
 .services-section::before {
-    content: "";
-    position: absolute;
-    inset: 4rem -12% auto -12%;
-    height: 420px;
-    background:
-        radial-gradient(circle at 20% 22%, rgba(103, 232, 249, 0.12), transparent 32%),
-        radial-gradient(circle at 82% 34%, rgba(192, 132, 252, 0.14), transparent 36%);
-    pointer-events: none;
-    z-index: 0;
+    content: none;
 }
 
 .services-cards {
@@ -1814,12 +2050,6 @@ textarea:focus-visible {
 
 .services-cta-button {
     flex-shrink: 0;
-}
-
-[data-theme="light"] .services-section::before {
-    background:
-        radial-gradient(circle at 20% 22%, rgba(8, 145, 178, 0.1), transparent 32%),
-        radial-gradient(circle at 82% 34%, rgba(124, 58, 237, 0.12), transparent 36%);
 }
 
 [data-theme="light"] .service-card,
@@ -2799,6 +3029,22 @@ textarea:focus-visible {
         width: 220px;
         height: 220px;
     }
+
+    body.hero-profile-ready .profile-globe-shell {
+        animation-name: profileGlobeSpinInMobile;
+    }
+
+    body.hero-profile-ready.hero-profile-spin-clockwise-2d .profile-globe-shell {
+        animation-name: profilePhotoClockwiseSpinInMobile;
+    }
+
+    body.hero-profile-ready.hero-profile-spin-clockwise .profile-globe-shell {
+        animation-name: profileGlobeSpinClockwiseMobile;
+    }
+
+    body.hero-profile-ready.hero-profile-spin-counterclockwise .profile-globe-shell {
+        animation-name: profileGlobeSpinCounterclockwiseMobile;
+    }
     
     .profile-image-glow {
         width: 110%;
@@ -2974,6 +3220,135 @@ textarea:focus-visible {
     }
 }
 
+@keyframes profileGlobeSpinInMobile {
+    0% {
+        opacity: 0;
+        transform: rotateY(-72deg) rotateZ(-3deg) scale(0.88);
+        filter: blur(3px) brightness(0.86);
+        box-shadow:
+            0 0 0 rgba(255,107,157,0),
+            0 0 0 rgba(255,107,157,0);
+    }
+
+    48% {
+        opacity: 1;
+        transform: rotateY(18deg) rotateZ(2deg) scale(1.04);
+        filter: blur(0) brightness(1.04);
+        box-shadow:
+            0 0 34px rgba(255,107,157,0.36),
+            0 0 58px rgba(192,132,252,0.16);
+    }
+
+    72% {
+        transform: rotateY(-8deg) rotateZ(-1deg) scale(1.01);
+    }
+
+    100% {
+        opacity: 1;
+        transform: rotateY(0deg) rotateZ(0deg) scale(1);
+        filter: blur(0) brightness(1);
+        box-shadow: none;
+    }
+}
+
+@keyframes profilePhotoClockwiseSpinInMobile {
+    0% {
+        opacity: 0;
+        transform: rotate(0deg) scale(0.9);
+        filter: blur(3px) brightness(0.88);
+        box-shadow:
+            0 0 0 rgba(255,107,157,0),
+            0 0 0 rgba(255,107,157,0);
+    }
+
+    32% {
+        opacity: 1;
+        transform: rotate(115deg) scale(1.02);
+        filter: blur(0) brightness(1.03);
+    }
+
+    58% {
+        transform: rotate(209deg) scale(1.035);
+        filter: blur(0) brightness(1.05);
+        box-shadow:
+            0 0 30px rgba(255,107,157,0.32),
+            0 0 52px rgba(192,132,252,0.14);
+    }
+
+    84% {
+        transform: rotate(302deg) scale(1.01);
+    }
+
+    100% {
+        opacity: 1;
+        transform: rotate(360deg) scale(1);
+        filter: blur(0) brightness(1);
+        box-shadow: none;
+    }
+}
+
+@keyframes profileGlobeSpinClockwiseMobile {
+    0% {
+        opacity: 0;
+        transform: rotateY(-72deg) rotateZ(-96deg) scale(0.88);
+        filter: blur(3px) brightness(0.86);
+        box-shadow:
+            0 0 0 rgba(255,107,157,0),
+            0 0 0 rgba(255,107,157,0);
+    }
+
+    48% {
+        opacity: 1;
+        transform: rotateY(18deg) rotateZ(22deg) scale(1.04);
+        filter: blur(0) brightness(1.04);
+        box-shadow:
+            0 0 34px rgba(255,107,157,0.36),
+            0 0 58px rgba(192,132,252,0.16);
+    }
+
+    72% {
+        transform: rotateY(-8deg) rotateZ(-8deg) scale(1.01);
+    }
+
+    100% {
+        opacity: 1;
+        transform: rotateY(0deg) rotateZ(0deg) scale(1);
+        filter: blur(0) brightness(1);
+        box-shadow: none;
+    }
+}
+
+@keyframes profileGlobeSpinCounterclockwiseMobile {
+    0% {
+        opacity: 0;
+        transform: rotateY(-72deg) rotateZ(96deg) scale(0.88);
+        filter: blur(3px) brightness(0.86);
+        box-shadow:
+            0 0 0 rgba(255,107,157,0),
+            0 0 0 rgba(255,107,157,0);
+    }
+
+    48% {
+        opacity: 1;
+        transform: rotateY(18deg) rotateZ(-22deg) scale(1.04);
+        filter: blur(0) brightness(1.04);
+        box-shadow:
+            0 0 34px rgba(255,107,157,0.36),
+            0 0 58px rgba(192,132,252,0.16);
+    }
+
+    72% {
+        transform: rotateY(-8deg) rotateZ(8deg) scale(1.01);
+    }
+
+    100% {
+        opacity: 1;
+        transform: rotateY(0deg) rotateZ(0deg) scale(1);
+        filter: blur(0) brightness(1);
+        box-shadow: none;
+    }
+}
+
 @media (prefers-reduced-motion: reduce) {
     *,
     *::before,
@@ -2996,5 +3371,19 @@ textarea:focus-visible {
     .particle {
         display: none;
     }
-}
 
+    .profile-globe-shell,
+    .profile-image-frame,
+    .profile-image {
+        animation: none !important;
+        transform: none !important;
+        opacity: 1 !important;
+        filter: none !important;
+    }
+
+    .profile-image-frame::before,
+    .profile-image-frame::after {
+        animation: none !important;
+        opacity: 0 !important;
+    }
+}

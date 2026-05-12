@@ -10,6 +10,8 @@ type AppState = {
   isReducedMotion: boolean;
 };
 
+const HERO_PROFILE_SPIN_VARIANT: 'default' | 'clockwise-2d' | 'clockwise' | 'counterclockwise' = 'clockwise-2d';
+
 export function ClientEffects() {
   useEffect(() => {
     const state: AppState = {
@@ -295,7 +297,13 @@ function initLoader() {
     if (percentage) percentage.textContent = `${Math.min(progress, 100)}%`;
     if (progress >= 100) {
       window.clearInterval(interval);
-      window.setTimeout(() => loader?.classList.add('hidden'), 300);
+      window.setTimeout(() => {
+        loader?.classList.add('hidden');
+        if (HERO_PROFILE_SPIN_VARIANT !== 'default') {
+          document.body.classList.add(`hero-profile-spin-${HERO_PROFILE_SPIN_VARIANT}`);
+        }
+        window.setTimeout(() => document.body.classList.add('hero-profile-ready'), 520);
+      }, 300);
     }
   }, 80);
 }
