@@ -168,6 +168,14 @@ function initMobileMenu(state: AppState) {
       setMobileMenuState(state, false);
     }
   });
+
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && state.isMenuOpen) setMobileMenuState(state, false);
+  });
+
+  window.addEventListener('resize', throttleWithRaf(() => {
+    if (state.isMenuOpen && window.innerWidth > 1180) setMobileMenuState(state, false);
+  }), { passive: true });
 }
 
 function setMobileMenuState(state: AppState, isOpen: boolean) {
