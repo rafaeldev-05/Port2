@@ -2305,6 +2305,11 @@ textarea:focus-visible {
     background: linear-gradient(135deg, #fbbf24 0%, #c084fc 50%, #67e8f9 100%);
 }
 
+.footer-social-link-youtube:hover {
+    background: #ff0033;
+    box-shadow: 0 0 22px rgba(255,0,51,0.24), 0 12px 30px rgba(2,6,23,0.22);
+}
+
 [data-theme="light"] .main-footer {
     background: linear-gradient(180deg, rgba(124,58,237,0.06), transparent 38%), var(--bg-card);
 }

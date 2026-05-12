@@ -16,6 +16,13 @@ const footerSocialLinks = [
     className: 'footer-social-link footer-social-link-instagram'
   },
   {
+    href: socialLinks.youtube,
+    label: 'Acessar YouTube de Rafael Freitas',
+    title: 'YouTube',
+    icon: 'fab fa-youtube',
+    className: 'footer-social-link footer-social-link-youtube'
+  },
+  {
     href: socialLinks.linkedin,
     label: 'Acessar LinkedIn de Rafael Freitas',
     title: 'LinkedIn',

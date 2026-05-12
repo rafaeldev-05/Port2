@@ -1,9 +1,10 @@
 import type { Project, Service, ServiceFeature, SkillCategory, TimelineItem } from '@/types';
 
 export const socialLinks = {
-  github: 'https://github.com/RafaelFreitas1009',
+  github: 'https://github.com/rafaeldev-05',
   tiktok: 'https://www.tiktok.com/@rafael_techsoftware',
   instagram: 'https://www.instagram.com/rafaelfreitasdev05/',
+  youtube: 'https://www.youtube.com/@rafaelfreitasdev05',
   linkedin: 'https://www.linkedin.com/in/rafaeldev05',
   email: 'mailto:rafaelfreitas1009@gmail.com',
   whatsapp: 'https://wa.me/5598992213045',
@@ -32,7 +33,7 @@ export const projects: Project[] = [
     icon: 'fas fa-shopping-cart',
     links: [
       { href: 'https://eurotrip-plan.vercel.app/', label: 'View Eurotrip Planner', icon: 'fas fa-external-link-alt' },
-      { href: 'https://github.com/RafaelFreitas1009/Eurotrip_Plan', label: 'View Eurotrip Planner code', icon: 'fab fa-github' }
+      { href: 'https://github.com/rafaeldev-05/Eurotrip_Plan', label: 'View Eurotrip Planner code', icon: 'fab fa-github' }
     ],
     tags: ['React', 'Node.js', 'Tailwind CSS']
   },
@@ -44,7 +45,7 @@ export const projects: Project[] = [
     icon: 'fas fa-blog',
     links: [
       { href: 'https://ecoflow-g2k6.vercel.app', label: 'View ESG Platform', icon: 'fas fa-external-link-alt' },
-      { href: 'https://github.com/RafaelFreitas1009/Ecoflow', label: 'View ESG Platform code', icon: 'fab fa-github' }
+      { href: 'https://github.com/rafaeldev-05/Ecoflow', label: 'View ESG Platform code', icon: 'fab fa-github' }
     ],
     tags: ['Next.js', 'Node.js', 'JavaScript', 'Vite']
   }
