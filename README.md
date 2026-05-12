@@ -1,54 +1,108 @@
 # Rafael Freitas Portfolio
 
-Personal portfolio for Rafael Freitas, built as a static frontend project with HTML, CSS and JavaScript.
+Personal portfolio for Rafael Freitas, migrated to Next.js with App Router and TypeScript while preserving the original visual identity.
 
-## Technologies
+## Stack
 
-- HTML5
-- CSS3
-- JavaScript
-- Vercel Web Analytics
+- Next.js App Router
+- TypeScript
+- React
+- Global CSS
+- Vercel Analytics
 - Vercel Speed Insights
+- Vercel Serverless API Route for contact form email
+
+## Structure
+
+```txt
+src/
+  app/
+    api/contact/route.ts
+    globals.css
+    layout.tsx
+    page.tsx
+  components/
+  lib/
+  types/
+public/
+  assets/
+    profile-rafael.webp
+    background-rafael.webp
+    rafael.webp
+```
 
 ## Run Locally
 
-Open `index.html` in the browser or serve the folder with any static file server.
+```bash
+npm install
+npm run dev
+```
 
-No framework, bundler or build step is required.
+Open `http://localhost:3000`.
 
-## Deploy On Vercel
+## Environment Variables
 
-Deploy the repository as a static site on Vercel.
+Create `.env.local` based on `.env.example`:
 
-- Build command: leave empty
-- Output directory: leave empty or use the project root
+```txt
+RESEND_API_KEY=your_resend_api_key
+CONTACT_TO_EMAIL=rafaelfreitas1009@gmail.com
+CONTACT_FROM_EMAIL=Portfolio <noreply@yourdomain.com>
+```
 
-## Verify Vercel Speed Insights
+- `RESEND_API_KEY` must be created in the Resend dashboard.
+- `CONTACT_TO_EMAIL` receives portfolio form messages.
+- `CONTACT_FROM_EMAIL` is optional, but should use a verified Resend domain in production.
+- If `CONTACT_FROM_EMAIL` is not set, the API route falls back to `Portfolio <onboarding@resend.dev>`.
 
-1. Deploy the site to production on Vercel.
-2. In the Vercel dashboard, enable Speed Insights for the project.
-3. Open the published production URL.
-4. Navigate through a few sections of the portfolio.
-5. Inspect the deployed HTML and confirm the `/_vercel/speed-insights/script.js` script is present.
-6. Wait for the data to appear in the Vercel dashboard under Speed Insights.
+## Contact Form
 
-Speed Insights data may not appear in local development. Production traffic is the reliable place to validate metrics.
+The contact form sends a `POST` request to `/api/contact`.
 
-## Vercel Analytics
+Sensitive email logic runs server-side in `src/app/api/contact/route.ts`. API keys are never exposed to frontend components.
 
-Este projeto usa:
+## Vercel
 
-- Vercel Web Analytics para visitantes e page views.
-- Vercel Speed Insights para métricas de performance.
+Deploy as a Next.js project on Vercel.
 
-Como validar:
+Configure the environment variables in:
 
-1. Fazer deploy em produção na Vercel.
-2. Acessar o domínio publicado.
-3. Navegar por algumas seções do site.
-4. Aguardar alguns minutos para os dados aparecerem no painel da Vercel.
-5. Conferir no DevTools > Network se os scripts abaixo estão carregando:
-   - `/_vercel/insights/script.js`
-   - `/_vercel/speed-insights/script.js`
+`Vercel > Project Settings > Environment Variables`
 
-Observação: os scripts da Vercel podem não funcionar corretamente em ambiente local, porque as rotas `/_vercel/...` dependem do ambiente publicado na Vercel.
+After changing environment variables, redeploy the project.
+
+Vercel Analytics and Speed Insights are rendered in `src/app/layout.tsx` through:
+
+- `@vercel/analytics/next`
+- `@vercel/speed-insights/next`
+
+## Security Notes
+
+Frontend code is always visible in the browser. Sensitive logic must stay in API Routes, Server Components, server actions, webhooks, or other server-side boundaries.
+
+This project keeps secrets in environment variables and validates/sanitizes contact form input on the server.
+
+Basic security headers are configured in `next.config.ts`:
+
+- `X-Frame-Options`
+- `X-Content-Type-Options`
+- `Referrer-Policy`
+- `Permissions-Policy`
+
+## Future SaaS Evolution
+
+This architecture is ready to grow toward SaaS features such as:
+
+- authentication
+- dashboard
+- checkout
+- webhooks
+- database integration
+- members area
+- terms and privacy pages
+
+These features are intentionally not implemented yet.
+
+## Author
+
+Rafael Freitas
