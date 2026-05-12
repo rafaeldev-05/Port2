@@ -1,3 +1,4 @@
+import type { CSSProperties } from 'react';
 import { socialLinks } from '@/lib/constants';
 import { SectionHeader } from './SectionHeader';
 
@@ -93,13 +94,13 @@ const commercialServices = [
 
 export function Services() {
   return (
-    <section id="services" className="section services-section">
+    <section id="services" className="section services-section" data-reveal="section">
       <div className="section-container">
         <SectionHeader number="05" title="Services" titlePt="Serviços" />
 
         <div className="services-cards">
-          {serviceCards.map((service) => (
-            <article className="service-card" key={service.title}>
+          {serviceCards.map((service, index) => (
+            <article className="service-card" key={service.title} data-reveal="card" style={{ '--reveal-delay': `${index * 100}ms` } as CSSProperties}>
               <div className="service-card-icon">
                 <i className={service.icon} />
               </div>
@@ -118,16 +119,16 @@ export function Services() {
         </div>
 
         <div className="services-chips">
-          {serviceChips.map((chip) => (
-            <div className="service-feature-pill" key={chip.text}>
+          {serviceChips.map((chip, index) => (
+            <div className="service-feature-pill" key={chip.text} data-reveal="item" style={{ '--reveal-delay': `${index * 60}ms` } as CSSProperties}>
               <i className={chip.icon} />
               <span data-text-en={chip.text} data-text-pt={chip.textPt}>{chip.text}</span>
             </div>
           ))}
         </div>
 
-        <div className="services-commercial">
-          <div className="services-commercial-copy">
+        <div className="services-commercial" data-reveal="up" style={{ '--reveal-delay': '120ms' } as CSSProperties}>
+          <div className="services-commercial-copy" data-reveal="left">
             <h3>
               <span data-text-en="Let's build your " data-text-pt="Vamos construir o seu ">Let&apos;s build your </span>
               <span className="services-highlight" data-text-en="digital success" data-text-pt="sucesso digital">digital success</span>
@@ -171,8 +172,8 @@ export function Services() {
           </div>
 
           <div className="commercial-services-list">
-            {commercialServices.map((service) => (
-              <article className="commercial-service-item" key={service.title}>
+            {commercialServices.map((service, index) => (
+              <article className="commercial-service-item" key={service.title} data-reveal="right" style={{ '--reveal-delay': `${index * 80}ms` } as CSSProperties}>
                 <div>
                   <h4 data-text-en={service.title} data-text-pt={service.titlePt}>{service.title}</h4>
                   <p data-text-en={service.description} data-text-pt={service.descriptionPt}>{service.description}</p>
@@ -183,7 +184,7 @@ export function Services() {
           </div>
         </div>
 
-        <div className="services-final-cta">
+        <div className="services-final-cta" data-reveal="scale">
           <div>
             <h3 data-text-en="Need a website, system, or app? Let's talk." data-text-pt="Precisa de um site, sistema ou aplicativo? Vamos conversar.">
               Need a website, system, or app? Let&apos;s talk.

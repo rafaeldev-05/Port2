@@ -1,5 +1,6 @@
 'use client';
 
+import type { CSSProperties } from 'react';
 import { socialLinks } from '@/lib/constants';
 import { SectionHeader } from './SectionHeader';
 
@@ -48,7 +49,7 @@ const faqItems = [
 
 export function FAQ() {
   return (
-    <section id="faq" className="section faq-section">
+    <section id="faq" className="section faq-section" data-reveal="section">
       <span id="contact" className="faq-legacy-anchor" aria-hidden="true" />
       <div className="section-container">
         <SectionHeader number="06" title="FAQ" titlePt="Dúvidas" />
@@ -56,7 +57,7 @@ export function FAQ() {
         <div className="faq-content">
           <div className="faq-list">
             {faqItems.map((item, index) => (
-              <details className="faq-item" key={item.question} open={index === 0}>
+              <details className="faq-item" key={item.question} open={index === 0} data-reveal="item" style={{ '--reveal-delay': `${index * 90}ms` } as CSSProperties}>
                 <summary>
                   <span data-text-en={item.question} data-text-pt={item.questionPt}>{item.question}</span>
                   <i className="fas fa-chevron-down" aria-hidden="true" />
@@ -66,7 +67,7 @@ export function FAQ() {
             ))}
           </div>
 
-          <div className="faq-cta">
+          <div className="faq-cta" data-reveal="scale">
             <div>
               <h3 data-text-en="Still have questions about your project?" data-text-pt="Ainda tem dúvidas sobre seu projeto?">
                 Still have questions about your project?

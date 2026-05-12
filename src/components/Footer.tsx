@@ -1,3 +1,4 @@
+import type { CSSProperties } from 'react';
 import { socialLinks } from '@/lib/constants';
 
 const footerSocialLinks = [
@@ -40,10 +41,10 @@ const footerSocialLinks = [
 
 export function Footer() {
   return (
-    <footer className="main-footer">
+    <footer className="main-footer" data-reveal="section">
       <div className="footer-container">
         <div className="footer-content">
-          <div className="footer-text-wrapper">
+          <div className="footer-text-wrapper" data-reveal="left">
             <p className="footer-text">
               <span className="footer-copyright">&copy; 2026 Rafael Freitas</span>
               <span className="footer-divider" aria-hidden="true">/</span>
@@ -61,7 +62,7 @@ export function Footer() {
             </p>
           </div>
 
-          <div className="footer-social-area" aria-label="Redes sociais">
+          <div className="footer-social-area" aria-label="Redes sociais" data-reveal="right" style={{ '--reveal-delay': '120ms' } as CSSProperties}>
             <p className="footer-social-title" data-text-en="Follow me" data-text-pt="Me acompanhe">Follow me</p>
             <div className="footer-social">
               {footerSocialLinks.map((link) => (

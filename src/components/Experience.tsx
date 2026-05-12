@@ -1,15 +1,16 @@
+import type { CSSProperties } from 'react';
 import { timelineItems } from '@/lib/constants';
 import { SectionHeader } from './SectionHeader';
 
 export function Experience() {
   return (
-    <section id="experience" className="section experience-section">
+    <section id="experience" className="section experience-section" data-reveal="section">
       <div className="section-container">
         <SectionHeader number="03" title="Experience" titlePt="Experiência" />
 
         <div className="timeline">
-          {timelineItems.map((item) => (
-            <div className="timeline-item" key={`${item.year}-${item.title}`}>
+          {timelineItems.map((item, index) => (
+            <div className="timeline-item" key={`${item.year}-${item.title}`} data-reveal="item" style={{ '--reveal-delay': `${index * 120}ms` } as CSSProperties}>
               <div className="timeline-marker" />
               <div className="timeline-content">
                 <div className="timeline-header">

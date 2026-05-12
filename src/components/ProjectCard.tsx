@@ -1,12 +1,14 @@
+import type { CSSProperties } from 'react';
 import type { Project } from '@/types';
 
 type ProjectCardProps = {
   project: Project;
+  revealDelay?: string;
 };
 
-export function ProjectCard({ project }: ProjectCardProps) {
+export function ProjectCard({ project, revealDelay }: ProjectCardProps) {
   return (
-    <div className="project-card">
+    <div className="project-card" data-reveal="card" style={{ '--reveal-delay': revealDelay } as CSSProperties}>
       <div className="project-image">
         <div className="project-overlay">
           <div className="project-links">

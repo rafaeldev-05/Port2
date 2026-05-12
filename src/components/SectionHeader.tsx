@@ -6,7 +6,7 @@ type SectionHeaderProps = {
 
 export function SectionHeader({ number, title, titlePt }: SectionHeaderProps) {
   return (
-    <div className="section-header">
+    <div className="section-header" data-reveal="heading">
       <span className="section-number">{number}</span>
       <h2 className="section-title">
         <span className="title-bracket">&lt;</span>
@@ -15,7 +15,7 @@ export function SectionHeader({ number, title, titlePt }: SectionHeaderProps) {
         </span>
         <span className="title-bracket">/&gt;</span>
       </h2>
-      <div className="section-line" />
+      <div className="section-line" data-reveal="line" />
     </div>
   );
 }

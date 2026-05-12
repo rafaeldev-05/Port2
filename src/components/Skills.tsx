@@ -1,5 +1,6 @@
 'use client';
 
+import type { CSSProperties } from 'react';
 import { useRef } from 'react';
 import { useAnimatedNumber } from '@/hooks/useAnimatedNumber';
 import { useInViewOnce } from '@/hooks/useInViewOnce';
@@ -11,13 +12,13 @@ export function Skills() {
   const { isInView, prefersReducedMotion } = useInViewOnce(ref, { threshold: 0.18 });
 
   return (
-    <section id="skills" className="section skills-section">
+    <section id="skills" className="section skills-section" data-reveal="section">
       <div className="section-container">
         <SectionHeader number="02" title="Skills" titlePt="Habilidades" />
 
         <div className="skills-grid" ref={ref}>
-          {skillCategories.map((category) => (
-            <div className="skill-category" key={category.title}>
+          {skillCategories.map((category, index) => (
+            <div className="skill-category" key={category.title} data-reveal="card" style={{ '--reveal-delay': `${index * 100}ms` } as CSSProperties}>
               <h3 className="category-title" data-text-en={category.title} data-text-pt={category.titlePt}>{category.title}</h3>
               <div className="skill-items">
                 {category.skills.map((skill) => <SkillItem key={skill.name} name={skill.name} percent={skill.percent} isInView={isInView} prefersReducedMotion={prefersReducedMotion} />)}

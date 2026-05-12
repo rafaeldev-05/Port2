@@ -309,18 +309,26 @@ function initLoader() {
 }
 
 function initBasicAnimations(state: AppState) {
-  if (state.isReducedMotion) return;
+  const revealElements = document.querySelectorAll<HTMLElement>('[data-reveal]');
+
+  if (state.isReducedMotion || !('IntersectionObserver' in window)) {
+    revealElements.forEach((element) => element.classList.add('is-visible'));
+    return;
+  }
 
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
-        entry.target.classList.add('animate-in');
+        entry.target.classList.add('is-visible');
         observer.unobserve(entry.target);
       }
     });
-  }, { threshold: 0.18 });
+  }, {
+    rootMargin: '0px 0px -80px 0px',
+    threshold: 0.16
+  });
 
-  document.querySelectorAll('.skill-category, .timeline-item, .project-card, .faq-item, .faq-cta, .section-header').forEach((element) => observer.observe(element));
+  revealElements.forEach((element) => observer.observe(element));
 }
 
 function throttleWithRaf(callback: () => void) {
