@@ -1,5 +1,6 @@
 import { About } from '@/components/About';
 import { ClientEffects } from '@/components/ClientEffects';
+import { DiscoveryForm } from '@/components/DiscoveryForm';
 import { Experience } from '@/components/Experience';
 import { FAQ } from '@/components/FAQ';
 import { Footer } from '@/components/Footer';
@@ -23,6 +24,7 @@ export default function Home() {
         <Projects />
         <Services />
         <FAQ />
+        <DiscoveryForm />
       </main>
       <Footer />
       <ClientEffects />
